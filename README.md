@@ -1,13 +1,18 @@
 # Cross-Platform-Mobile
 
-## Overview
-A production-ready React Native application architecture demonstrating cross-platform mobile development for iOS and Android using a single codebase.
+![CI](https://github.com/skylerblue333/Cross-Platform-Mobile/workflows/CI/badge.svg)
 
-## Quick Start (1-Click Build)
+Production-ready TypeScript Express API for mobile operations.
 
+## Features
+- Fully typed Express handlers
+- Supertest integration testing
+- Docker containerization
+- GitHub Actions CI Pipeline
+
+## Quick Start
 ```bash
-git clone https://github.com/skylerblue333/Cross-Platform-Mobile.git
-cd Cross-Platform-Mobile
-npm install
-npm start
+npm ci
+npm test
+npm run build && npm start
 ```
