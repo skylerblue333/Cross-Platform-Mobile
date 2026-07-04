@@ -7,7 +7,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Enterprise Mobile App</Text>
+        <Text style={styles.title}>Scalable Mobile App</Text>
         <Text style={styles.subtitle}>Cross-Platform Architecture</Text>
         
         <View style={styles.card}>
