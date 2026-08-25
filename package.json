@@ -1,27 +1,19 @@
 {
-  "name": "cross-platform-mobile",
-  "version": "1.0.0",
+  "name": "sky-mobile-interaction-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Small React Native state and accessibility engineering lab",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "test": "jest --forceExit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/session.test.ts"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "react": "19.1.0",
+    "react-native": "0.81.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.10",
-    "@types/supertest": "^2.0.16",
-    "jest": "^29.7.0",
-    "supertest": "^6.3.3",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.3.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node"
+    "@types/react": "^19.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0"
   }
 }
