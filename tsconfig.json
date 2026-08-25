@@ -2,10 +2,13 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["jest"]
+  },
+  "include": ["App.tsx", "src/**/*.ts", "tests/**/*.ts"]
 }
