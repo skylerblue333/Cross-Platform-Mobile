@@ -1,44 +1,39 @@
-<!-- PORTFOLIO PROJECT PROFILE: maintained by the repository owner -->
+# Sky Mobile Interaction Lab
 
-## Project profile and code-audit snapshot
+Sky Mobile Interaction Lab is a small React Native engineering exercise for cross-platform UI state and accessibility behavior. It is intentionally scoped to one screen plus a deterministic state reducer so the repository stays truthful to its size.
 
-**What this is:** **Cross-Platform-Mobile** is a public repository described as: “React Native app architecture targeting both iOS and Android. #SkyCoin4444 #AI #Blockchain #DevOps #Innovation” Its dominant language signals are **TypeScript (2 files), Python (2 files), TypeScript/React (1 files)**.
+**Status: ENGINEERING LAB.** This is not a complete iOS/Android application, app-store release, production client, or replacement for the main SKYCOIN4444 frontend.
 
-**Why it has value:** Its value is best understood through the implementation evidence currently present in the repository: **21 tracked files** were observed in the shallow audit, with the source structure and existing documentation providing the project’s specific context. This README does not treat a prototype, experiment, or archive as a production system without supporting evidence.
+## What it demonstrates
 
-**Implementation evidence:** 2 test-related file(s) detected; 2 dependency or package manifest(s) detected; 2 build/CI/infrastructure signal(s) detected; and 3 documentation or governance file(s) detected. Test filenames observed include `tests/api.test.ts`, `tests/test_main.py`. Dependency or package files include `package.json`, `requirements.txt`. Build, CI, or infrastructure signals include `Dockerfile`, `.github/workflows/ci.yml`.
+- a React Native screen shared by iOS/Android-capable tooling
+- deterministic interaction state separated from rendering
+- bounded state transitions and goal validation
+- progress calculation with an explicit 100% cap
+- accessible button roles/labels and a polite live progress region
+- TypeScript strict checking and Node-based reducer tests
 
-**Current status:** The repository is tracked on the `main` branch. The existing source tree, configuration, tests, workflows, and documentation remain authoritative for supported behavior and maturity. A code audit is not a production-readiness certification, and the presence of a test or workflow file does not establish that all checks pass.
+The screen tracks an interaction count against a small goal, supports reset, and exposes accessibility metadata for controls and progress feedback. The reducer caps interaction counts and rejects invalid goals.
 
-**Relationship to the wider portfolio:** This repository is one focused component of the broader Skyler Blue Spillers portfolio across AI, software engineering, cloud and DevOps, cybersecurity, blockchain, finance, education, social systems, and creative work. It may provide a service boundary, implementation pattern, experiment, archive, or reusable idea for related repositories. Treat repositories as technical dependencies only where documented interfaces and verified project requirements support that relationship.
+## Verification
 
-**Quality and security note:** No obvious secret-like pattern was detected by the limited static scan; this is not a substitute for a security audit. No TODO/FIXME marker was detected in the scanned text files.
+```bash
+npm install
+npm run typecheck
+npm test
+npm audit --omit=dev --audit-level=high
+```
 
----
+CI runs those same checks. This repository does not currently include native Xcode/Gradle projects, simulator/device automation, signed builds, app-store metadata, push notifications, authentication, persistent storage, networking, or deployment automation. Those omissions are intentional and are why the repository is classified as an engineering lab rather than a standalone production application.
 
-# Cross Platform Mobile
+## Architecture
 
-![GitHub stars](https://img.shields.io/github/stars/skylerblue333/Cross-Platform-Mobile?style=flat-square)
-![GitHub license](https://img.shields.io/github/license/skylerblue333/Cross-Platform-Mobile?style=flat-square)
+`App.tsx` owns only presentation and dispatches actions. `src/session.ts` contains the framework-light state contract and can be tested without booting a mobile runtime. `tests/session.test.ts` covers increment/reset behavior, bounded goals, count saturation, and progress calculation.
 
-## 🌟 Overview
-**Cross-Platform-Mobile** is a professional-grade project within the **SkyCoin4444** ecosystem. It focuses on delivering high-value solutions in the domain of **TypeScript, Python**.
+## SKYCOIN4444 relationship
 
-## 🚀 Key Features
-- **Scalable Architecture**: Designed for enterprise-level growth and performance.
-- **Modern Standards**: Implements best practices for clean code and maintainability.
-- **Robust Integration**: Built to work seamlessly within modern cloud-native environments.
+Patterns proven here—small reducers, accessibility labeling, live regions, and UI/state separation—can be reused selectively in the canonical SKYCOIN4444 mobile/frontend work. This lab is not itself an ecosystem dependency.
 
-## 🛠️ Technology Stack
-- **Primary Domain**: TypeScript, Python
-- **Ecosystem**: SkyCoin4444 Digital Platform
+## Security and privacy
 
-## 📂 Structure
-The project is organized into a modular structure to ensure clarity and ease of development.
-
-## 👨‍💻 Author
-**Skyler Blue Spillers**
-*Professional Chess Player & Software Engineer*
-
----
-*Powered by SkyCoin4444*
+The current lab stores no credentials, personal data, network tokens, or persistent user state. A future app that adds networking, authentication, storage, deep links, or platform permissions must add threat modeling, secure storage, permission handling, dependency review, device-level tests, and release-signing procedures before its status is raised.
